@@ -1,0 +1,51 @@
+[
+  {
+    "id": "KB-001",
+    "title": "AgentX Architecture Overview",
+    "category": "architecture",
+    "tags": ["agentx", "langgraph", "groq", "tools"],
+    "content": "AgentX is an LLM-driven autonomous agent orchestrating native tool calling via the Groq SDK and LangGraph state graph. Unlike static routers, AgentX lets the model select and execute tools iteratively based on natural language inquiries."
+  },
+  {
+    "id": "KB-002",
+    "title": "SSRF Defense Policy",
+    "category": "security",
+    "tags": ["security", "ssrf", "browser", "network", "server-side request forgery", "server-side", "forgery", "prevention"],
+    "content": "All outbound network requests initiated by automated browser tools must be strictly filtered against private IP ranges (RFC 1918), loopback (127.0.0.0/8, ::1), link-local (169.254.0.0/16), and cloud metadata services (169.254.169.254)."
+  },
+  {
+    "id": "KB-003",
+    "title": "Safe Mathematical Evaluation Guidelines",
+    "category": "security",
+    "tags": ["calculator", "ast", "math", "safety"],
+    "content": "Mathematical expressions must be parsed strictly through Python Abstract Syntax Trees (AST) using mode='eval'. Raw eval() and exec() are prohibited to prevent arbitrary code execution and memory exhaustion exploits."
+  },
+  {
+    "id": "KB-004",
+    "title": "Duplicate Consecutive Response Policy",
+    "category": "policy",
+    "tags": ["session", "deduplication", "history", "llm"],
+    "content": "To prevent repetitive outputs, AgentX compares new candidate responses against the previous response delivered in the active session. If an answer is identical after whitespace normalization, the agent requests a model rephrase while preserving facts."
+  },
+  {
+    "id": "KB-005",
+    "title": "Deployment Release Schedule 2026",
+    "category": "operations",
+    "tags": ["release", "deployment", "schedule", "v2"],
+    "content": "AgentX v2.4 stable is scheduled for production release on November 15, 2026. Staging freeze begins November 5, 2026. All security audits and SSRF test suites must pass before deployment signoff."
+  },
+  {
+    "id": "KB-006",
+    "title": "Playwright Automation Quotas and Timeouts",
+    "category": "infrastructure",
+    "tags": ["playwright", "timeout", "browser", "quotas"],
+    "content": "Browser navigation tasks are allocated a hard timeout of 10 seconds. Response body extraction is capped at 4,000 characters to prevent prompt injection payload flooding and context token exhaustion."
+  },
+  {
+    "id": "KB-007",
+    "title": "Hallucination Mitigation Protocol",
+    "category": "ai-safety",
+    "tags": ["hallucination", "evidence", "grounding", "missing-data"],
+    "content": "When a requested tool returns 'no_results' or encounters an error, the agent is strictly prohibited from inventing facts. The agent must acknowledge missing evidence and state what could not be verified."
+  }
+]
